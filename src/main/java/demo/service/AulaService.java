@@ -28,6 +28,6 @@ public class AulaService {
         s.setApellido("Dolores");
         s.setTurno(Turno.MANANA);
         servicioRepository.save(s);
-        a.setServicios(s);
+        //a.setServicios(s);
     }
 }

@@ -1,5 +1,6 @@
 package demo.model;
 
+
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import java.util.HashSet;
@@ -8,11 +9,23 @@ import java.util.Set;
 /**
  * Created by Juan Daniel on 24/06/2015.
  */
+
 @Entity
 public class Aula {
 
-    @ManyToMany(mappedBy = "servicios")
+    public Long getIdAula() {
+        return idAula;
+    }
+
+    public void setIdAula(Long idAula) {
+        this.idAula = idAula;
+    }
+
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long idAula;
+
+    @ManyToMany
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Set<Servicio> servicios = new HashSet<>();
 

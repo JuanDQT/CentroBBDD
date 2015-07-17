@@ -1,9 +1,13 @@
 package demo.service;
+/*
+import demo.model.Alumno;
+import demo.model.Asignatura;
+import demo.model.Especialidad;*/
 
-import demo.model.Alumnos;
+import demo.model.Alumno;
 import demo.model.Asignatura;
 import demo.model.Especialidad;
-import demo.resource.AlumnosRepository;
+import demo.resource.AlumnoRepository;
 import demo.resource.AsignaturaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,15 +15,17 @@ import org.springframework.stereotype.Service;
 /**
  * Created by Juan Daniel on 26/06/2015.
  */
+
+
 @Service
 public class AsignaturaService {
     @Autowired
     private AsignaturaRepository asignaturaRepository;
     @Autowired
-    private AlumnosRepository alumnosRepository;
+    private AlumnoRepository alumnoRepository;
 
     public void testAsignatura(){
-        /*CREACION DE ASIGNATURAS*/
+        //CREACION DE ASIGNATURAS
         Asignatura bases = new Asignatura();
         bases.setNombre("Bases de datos");
         bases.setDuracion(300L);
@@ -38,28 +44,28 @@ public class AsignaturaService {
         asix.setEspecialidad(Especialidad.ASIX);
         asignaturaRepository.save(asix);
 
-        /*CREACION DE ALUMNOS CON SU RESPECTIVA FORMACION*/
-        Alumnos a1 = new Alumnos();
+        //CREACION DE ALUMNOS CON SU RESPECTIVA FORMACION
+        Alumno a1 = new Alumno();
         a1.setNombre("Juan");
         a1.setApellido("Mendez");
         a1.setEspecialidad(Especialidad.DAM);
-        alumnosRepository.save(a1);
+        alumnoRepository.save(a1);
 
-        Alumnos a2 = new Alumnos();
+        Alumno a2 = new Alumno();
         a2.setNombre("Marc");
         a2.setApellido("Sanahuja");
         a2.setEspecialidad(Especialidad.DAM);
-        alumnosRepository.save(a2);
+        alumnoRepository.save(a2);
 
-        Alumnos a3 = new Alumnos();
+        Alumno a3 = new Alumno();
         a3.setNombre("Andres");
         a3.setApellido("Romero");
         a3.setEspecialidad(Especialidad.DAM);
-        alumnosRepository.save(a3);
+        alumnoRepository.save(a3);
 
-        Alumnos a4 = new Alumnos();
+        Alumno a4 = new Alumno();
         a4.setNombre("Gudiño");
         a4.setEspecialidad(Especialidad.ASIX);
-        alumnosRepository.save(a4);
+        alumnoRepository.save(a4);
     }
 }

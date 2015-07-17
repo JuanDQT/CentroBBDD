@@ -1,5 +1,7 @@
 package demo.model;
 
+//import org.springframework.data.annotation.Id;
+
 import javax.persistence.*;
 
 /**
@@ -8,7 +10,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="ALUMNOS")
-public class Alumnos {
+public class Alumno {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,7 +26,7 @@ public class Alumnos {
     @Enumerated(EnumType.STRING)
     private Especialidad especialidad;
 
-    public Alumnos() {}
+    public Alumno() {}
 
     public Long getAlumCod() {
         return alumCod;
@@ -60,7 +62,7 @@ public class Alumnos {
 
     @Override
     public String toString() {
-        return "Alumnos{" +
+        return "Alumno{" +
                 "alumCod=" + alumCod +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
@@ -73,12 +75,12 @@ public class Alumnos {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Alumnos alumnos = (Alumnos) o;
+        Alumno alumno = (Alumno) o;
 
-        if (alumCod != null ? !alumCod.equals(alumnos.alumCod) : alumnos.alumCod != null) return false;
-        if (nombre != null ? !nombre.equals(alumnos.nombre) : alumnos.nombre != null) return false;
-        if (apellido != null ? !apellido.equals(alumnos.apellido) : alumnos.apellido != null) return false;
-        return especialidad == alumnos.especialidad;
+        if (alumCod != null ? !alumCod.equals(alumno.alumCod) : alumno.alumCod != null) return false;
+        if (nombre != null ? !nombre.equals(alumno.nombre) : alumno.nombre != null) return false;
+        if (apellido != null ? !apellido.equals(alumno.apellido) : alumno.apellido != null) return false;
+        return especialidad == alumno.especialidad;
 
     }
 

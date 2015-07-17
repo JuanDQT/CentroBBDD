@@ -1,13 +1,13 @@
 package demo.model;
 
-//import org.apache.catalina.Manager;
-
 import javax.persistence.*;
 
 /**
  * Created by Juan Daniel on 24/06/2015.
  */
+
 @Entity
+@PrimaryKeyJoinColumn(name="id")//Junta las tablas por la primary key, para relizar el join
 public class Profesor extends Empleados {
 
     @OneToOne

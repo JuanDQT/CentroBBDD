@@ -6,6 +6,7 @@ import javax.persistence.*;
 /**
  * Created by Juan Daniel on 24/06/2015.
  */
+
 @Entity
 public class Asignatura {
     @Id

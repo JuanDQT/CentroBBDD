@@ -7,13 +7,11 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name="EMPLEADOS")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Empleados {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="cod_emp")
-    protected Long codEmp;
+    private Long id;
 
     @Column
     private String  nombre;
@@ -24,8 +22,8 @@ public class Empleados {
     public Empleados() {
     }
 
-    public Empleados(Long codEmp, String nombre, String apellido) {
-        this.codEmp = codEmp;
+    public Empleados(Long id, String nombre, String apellido) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
     }
@@ -53,7 +51,7 @@ public class Empleados {
 
         Empleados empleados = (Empleados) o;
 
-        if (codEmp != null ? !codEmp.equals(empleados.codEmp) : empleados.codEmp != null) return false;
+        if (id != null ? !id.equals(empleados.id) : empleados.id != null) return false;
         if (nombre != null ? !nombre.equals(empleados.nombre) : empleados.nombre != null) return false;
         return !(apellido != null ? !apellido.equals(empleados.apellido) : empleados.apellido != null);
 
@@ -61,16 +59,17 @@ public class Empleados {
 
     @Override
     public int hashCode() {
-        int result = codEmp != null ? codEmp.hashCode() : 0;
+        int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (nombre != null ? nombre.hashCode() : 0);
         result = 31 * result + (apellido != null ? apellido.hashCode() : 0);
         return result;
     }
 
+
     @Override
     public String toString() {
         return "Empleados{" +
-                "codEmp=" + codEmp +
+                "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 '}';

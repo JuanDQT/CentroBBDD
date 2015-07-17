@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 /**
  * Created by Juan Daniel on 27/06/2015.
  */
+
+
+
 @Service
 public class ProfesorService {
     @Autowired
@@ -32,5 +35,11 @@ public class ProfesorService {
         p.setSalario(99999L);
         p.setAsignatura(pue);
         profesorRepository.save(p);
+
+        p = new Profesor();
+        p.setNombre("Canovas");
+        p.setSalario(100L);
+        profesorRepository.save(p);
     }
 }
+

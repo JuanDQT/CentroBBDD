@@ -2,24 +2,22 @@ package demo.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
-
 
 /**
  * Created by Juan Daniel on 29/06/2015.
  */
+
 @Entity
+@PrimaryKeyJoinColumn(name="id")//Junta las tablas por la primary key, para relizar el joing
 public class Servicio extends Empleados{
     @Enumerated(EnumType.STRING)
     private Turno turno;
 
     @JsonIgnore
-    @ManyToMany
+    @ManyToMany(mappedBy = "servicios")
     private Set<Aula> aulas = new HashSet<>();
 
 

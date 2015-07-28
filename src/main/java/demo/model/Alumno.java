@@ -3,6 +3,9 @@ package demo.model;
 //import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
+import java.util.Set;
 
 /**
  * Created by Juan Daniel on 19/06/2015.
@@ -17,14 +20,18 @@ public class Alumno {
     @Column(name="alum_cod")
     private Long alumCod;
 
-    @Column
+    @NotNull
     private String nombre;
 
-    @Column
+    @NotNull
     private String apellido;
 
-    @Enumerated(EnumType.STRING)
-    private Especialidad especialidad;
+    private LocalDate fechaNacimiento;
+
+    //ANOTACIONES MANY-TO-ONE--ONE-TO-MANY--MANY-TO-MANY
+
+    @OneToMany(mappedBy = "alumno")
+    private Set<Especialidad> especialidads;
 
     public Alumno() {}
 
@@ -52,44 +59,11 @@ public class Alumno {
         this.apellido = apellido;
     }
 
-    public Especialidad getEspecialidad() {
-        return especialidad;
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
-    public void setEspecialidad(Especialidad especialidad) {
-        this.especialidad = especialidad;
-    }
-
-    @Override
-    public String toString() {
-        return "Alumno{" +
-                "alumCod=" + alumCod +
-                ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", especialidad=" + especialidad +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Alumno alumno = (Alumno) o;
-
-        if (alumCod != null ? !alumCod.equals(alumno.alumCod) : alumno.alumCod != null) return false;
-        if (nombre != null ? !nombre.equals(alumno.nombre) : alumno.nombre != null) return false;
-        if (apellido != null ? !apellido.equals(alumno.apellido) : alumno.apellido != null) return false;
-        return especialidad == alumno.especialidad;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = alumCod != null ? alumCod.hashCode() : 0;
-        result = 31 * result + (nombre != null ? nombre.hashCode() : 0);
-        result = 31 * result + (apellido != null ? apellido.hashCode() : 0);
-        result = 31 * result + (especialidad != null ? especialidad.hashCode() : 0);
-        return result;
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 }

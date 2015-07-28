@@ -1,7 +1,6 @@
 package demo.service;
 
 import demo.model.Asignatura;
-import demo.model.Especialidad;
 import demo.model.Profesor;
 import demo.resource.AsignaturaRepository;
 import demo.resource.ProfesorRepository;
@@ -26,7 +25,6 @@ public class ProfesorService {
         Asignatura pue = new Asignatura();
         pue.setNombre("CURSO PUE veranito veraniego");
         pue.setDuracion(80L);
-        pue.setEspecialidad(Especialidad.DAM);
         asignaturaRepository.save(pue);
 
         Profesor p = new Profesor();

@@ -16,11 +16,11 @@ public class Asignatura {
     private String nombre;
     private Long duracion;
 
-    @Enumerated(EnumType.STRING)
-    private Especialidad especialidad;
-
     @OneToOne(mappedBy = "asignatura")
     private Profesor profesor;
+
+    @ManyToOne
+    private Especialidad especialidad;
 
     public Asignatura() {
     }
@@ -49,13 +49,6 @@ public class Asignatura {
         this.duracion = duracion;
     }
 
-    public Especialidad getEspecialidad() {
-        return especialidad;
-    }
-
-    public void setEspecialidad(Especialidad especialidad) {
-        this.especialidad = especialidad;
-    }
 
     public Profesor getProfesor() {
         return profesor;
